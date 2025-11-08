@@ -1,7 +1,6 @@
 package radixsort_test
 
 import (
-	"fmt"
 	"slices"
 	"testing"
 
@@ -28,7 +27,6 @@ func TestRadixSort(t *testing.T) {
 		t.Run(testcase.name, func(t *testing.T) {
 			res := testcase.test
 			radixsort.Sort(res)
-			fmt.Println(testcase.test)
 			if !slices.IsSorted(res) {
 				t.Fail()
 			}
