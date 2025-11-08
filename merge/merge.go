@@ -1,13 +1,17 @@
 package merge
 
-func Sort(a []int) {
+import (
+	"cmp"
+)
+
+func Sort[T cmp.Ordered](a []T) {
 	sorted := mergeSort(a)
 	for i, v := range sorted {
 		a[i] = v
 	}
 }
 
-func mergeSort(a []int) []int {
+func mergeSort[T cmp.Ordered](a []T) []T {
 	if len(a) < 2 {
 		return a
 	}
@@ -16,8 +20,8 @@ func mergeSort(a []int) []int {
 	return merge(left, right)
 }
 
-func merge(a []int, b []int) []int {
-	res := []int{}
+func merge[T cmp.Ordered](a []T, b []T) []T {
+	res := []T{}
 	i := 0
 	j := 0
 	for i < len(a) && j < len(b) {
